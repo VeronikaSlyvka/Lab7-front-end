@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Стиль для першого кліку (варіант 144) */
+.active-get {
+    background-color: #ffb4ec; 
+    color: #348207; 
+}
+
+/* Стиль для другого кліку */
+.active-query {
+    background-color: #2a9d8f; 
+    color: #fed0ff;
+}
+
+li {
+    cursor: pointer;
+    width: fit-content;
+    margin-bottom: 5px;
+}
+
+button {
+    margin-right: 10px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
