@@ -1,30 +1,47 @@
 import React, { useState } from 'react';
 
 function Image() {
-    const [scale, setScale] = useState(1); // Масштаб картинки
-    const [isVisible, setIsVisible] = useState(true); // Чи видно картинку
+    // Початкова ширина 600px (як було приблизно в прикладі)
+    const [imgWidth, setImgWidth] = useState(800); 
+    const [isVisible, setIsVisible] = useState(true); 
 
-    const addImage = () => setIsVisible(true);
-    const removeImage = () => setIsVisible(false);
-    const increaseImage = () => setScale(prev => prev + 0.1); // +10%
-    const decreaseImage = () => setScale(prev => prev - 0.1); // -10%
+    const addImage = () => {
+        setIsVisible(true);
+        setImgWidth(800); // При додаванні повертаємо стандартний розмір
+    };
+
+    const removeImage = () => {
+        setIsVisible(false);
+    };
+
+    const increaseImage = () => {
+        // Збільшуємо ширину на 50px (або можна множити: prev * 1.1)
+        setImgWidth(prevWidth => prevWidth + 50); 
+    };
+
+    const decreaseImage = () => {
+        // Зменшуємо, але не даємо стати менше 50px
+        setImgWidth(prevWidth => (prevWidth > 50 ? prevWidth - 50 : prevWidth)); 
+    };
 
     return (
         <div>
-             {/* Відображаємо картинку тільки якщо isVisible = true */}
+             {/* Блок картинки */}
             {isVisible && (
-                <div style={{ textAlign: 'center', margin: '20px' }}>
+                <div style={{ margin: '20px' }}>
                     <a href="https://en.wikipedia.org/wiki/Fl%C3%A5m" target="_blank" rel="noreferrer">
                         <img 
                             src="Flam.jpg" 
                             alt="Флом" 
-                            style={{ width: '600px', transform: `scale(${scale})`, transition: '0.3s' }} 
+                            // Тепер ми змінюємо реальну ширину, і контейнер буде розтягуватися
+                            style={{ width: `${imgWidth}px`, maxWidth: '100%' }} 
                         />
                     </a>
                 </div>
             )}
             
-            <div style={{ marginTop: '50px' }}>
+            {/* Блок кнопок */}
+            <div style={{ marginTop: '20px', marginBottom: '30px' }}>
                 <button onClick={addImage}>Додати</button>
                 <button onClick={increaseImage}>Збільшити</button>
                 <button onClick={decreaseImage}>Зменшити</button>
