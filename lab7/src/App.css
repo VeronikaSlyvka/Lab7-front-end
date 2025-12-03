@@ -24,3 +24,58 @@ button {
     padding: 8px 15px;
     cursor: pointer;
 }
+
+
+
+.goods-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.goods-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+.image-box img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.goods-card h3 {
+    font-size: 16px;
+    color: #0088cc; 
+    margin: 10px 0;
+    min-height: 40px;
+}
+
+.nav-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.nav-buttons button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.nav-buttons button:hover {
+    background-color: #555;
+}
