@@ -21,7 +21,7 @@ function GoodsGallery() {
                 {goods.map(item => (
                     <GoodsCard 
                         key={item.id}
-                        image={item.image}
+                        image={process.env.PUBLIC_URL + '/' + item.image}
                         name={item.name}
                         price={item.price}
                     />
