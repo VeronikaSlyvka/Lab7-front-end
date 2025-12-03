@@ -3,46 +3,39 @@ import React, { Component } from 'react';
 class Content extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            class1: '', // стан для 5-го елемента
-            class2: ''  // стан для 6-го елемента
-        };
+        this.state = {}; 
     }
 
-    // Логіка для 5-го елемента (n mod 10 + 1 = 5)
-    handleElement1Click = () => {
-        this.setState(prevState => ({
-            class1: prevState.class1 === 'active-get' ? '' : 'active-get'
-        }));
-    };
+    componentDidMount() {
+        const allElements = document.querySelectorAll('h1, h2, h3, h4, p, li, a, img');
 
-    // Логіка для 6-го елемента (наступний)
-    handleElement2Click = () => {
-        this.setState(prevState => ({
-            class2: prevState.class2 === 'active-query' ? '' : 'active-query'
-        }));
-    };
+        const n = 144;
+        const targetIndex1 = (n % 10) + 1; // 5
+        const targetIndex2 = targetIndex1 + 1; // 6
+
+        const element1 = allElements[targetIndex1 - 1]; 
+        const element2 = allElements[targetIndex2 - 1]; 
+
+        if (element1) {
+            element1.onclick = () => {
+                element1.classList.toggle('active-get');
+            };
+        }
+
+        if (element2) {
+            element2.onclick = () => {
+                element2.classList.toggle('active-query');
+            };
+        }
+    }
 
     render() {
         return (
             <div>
                 <h3>Хобі:</h3>
                 <ul>
-                    {/* Це 5-й елемент на сторінці (враховуючи h2, p, p, h3 і цей li) */}
-                    <li 
-                        onClick={this.handleElement1Click} 
-                        className={this.state.class1}
-                    >
-                        Повітряна гімнастика
-                    </li>
-                    
-                    {/* Це 6-й елемент */}
-                    <li 
-                        onClick={this.handleElement2Click} 
-                        className={this.state.class2}
-                    >
-                        Художня гімнастика
-                    </li>
+                    <li>Повітряна гімнастика</li>
+                    <li>Художня гімнастика</li>
                     <li>Фігурне катання</li>
                     <li>Театр</li>
                 </ul>

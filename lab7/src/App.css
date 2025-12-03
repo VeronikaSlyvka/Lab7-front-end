@@ -3,13 +3,11 @@ body {
     padding: 20px;
 }
 
-/* Стиль для першого кліку (варіант 144) */
 .active-get {
     background-color: #ffb4ec; 
     color: #348207; 
 }
 
-/* Стиль для другого кліку */
 .active-query {
     background-color: #2a9d8f; 
     color: #fed0ff;
