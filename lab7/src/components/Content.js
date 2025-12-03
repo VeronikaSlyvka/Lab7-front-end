@@ -9,12 +9,18 @@ class Content extends Component {
     componentDidMount() {
         const allElements = document.querySelectorAll('h1, h2, h3, h4, p, li, a, img');
 
+        allElements.forEach((element, index) => {
+            if (!element.id) {
+                element.id = `el-${index + 1}`;
+            }
+        });
+
         const n = 144;
         const targetIndex1 = (n % 10) + 1; // 5
         const targetIndex2 = targetIndex1 + 1; // 6
 
-        const element1 = allElements[targetIndex1 - 1]; 
-        const element2 = allElements[targetIndex2 - 1]; 
+        const element1 = document.getElementById(`el-${targetIndex1}`); 
+        const element2 = document.querySelector(`#el-${targetIndex2}`);
 
         if (element1) {
             element1.onclick = () => {
