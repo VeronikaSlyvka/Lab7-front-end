@@ -27,7 +27,7 @@ function Image() {
                 <div style={{ margin: '20px' }}>
                     <a href="https://en.wikipedia.org/wiki/Fl%C3%A5m" target="_blank" rel="noreferrer">
                         <img 
-                            src="Flam.jpg" 
+                            src={process.env.PUBLIC_URL + '/Flam.jpg'}
                             alt="Флом" 
                             style={{ width: `${imgWidth}px`, maxWidth: '100%' }} 
                         />
